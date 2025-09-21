@@ -4,11 +4,11 @@ vim.g.maplocalleader = ","
 local keymap = vim.keymap
 
 -- ---------- insert mode ---------- ---
-keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
 -- ---------- visual mode ---------- ---
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- ---------- normal mode ---------- ---
@@ -43,12 +43,12 @@ vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Equalize window sizes" })
 
 
 -- dispose highlighting
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Close highlighting" })
 
 -- switch buffer
 keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Close current buffer" })
-keymap.set("n", "<F7>", ":bprevious<CR>")
-keymap.set("n", "<F8>", ":bnext<CR>")
+keymap.set("n", "<F7>", ":bprevious<CR>", { desc = "Move to previous buffer" })
+keymap.set("n", "<F8>", ":bnext<CR>", { desc = "Move to next buffer" })
 
 -- system clipboard
 vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
@@ -56,21 +56,21 @@ vim.keymap.set("n", "<leader>y", '"+yy', { desc = "Yank line to system clipboard
 
 -- ---------- plugins ---------- ---
 -- nvim-tree
-vim.keymap.set("n", "<F4>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<F4>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true }, { desc = "Open/Close file tree" })
 
 -- treesitter
 vim.keymap.set("n", "<leader>f", "gg=G", { desc = "Format code" })
 
 -- lsp
-vim.keymap.set("n", "ga", vim.diagnostic.open_float)
-vim.keymap.set("n", "gk", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "gj", vim.diagnostic.goto_next)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "gr", vim.lsp.buf.references)
-vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "ga", vim.diagnostic.open_float, { desc = "Open diagnostic info" })
+vim.keymap.set("n", "gk", vim.diagnostic.goto_prev, { desc = "Move to previous diagnostic info" })
+vim.keymap.set("n", "gj", vim.diagnostic.goto_next, { desc = "Move to next diagnostic info" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Jump to definition" })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Jump to declaration" })
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Jump to type_definition" })
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Jump to implementation" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Show all references" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover info" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {desc = "Rename var's name" } )
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "<leader>fm", function()
