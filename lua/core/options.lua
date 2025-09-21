@@ -20,6 +20,7 @@ opt.cursorline = true
 opt.mouse:append("a")
 
 -- system clipboard
+-- need install `xclip`/`xsel` in Linux or `pbcopy`/`pbpaste` in MacOS
 opt.clipboard:append("unnamedplus")
 
 -- new window position
