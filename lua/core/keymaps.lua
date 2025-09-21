@@ -9,6 +9,7 @@ keymap.set("i", "jk", "<ESC>")
 -- ---------- visual mode ---------- ---
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- ---------- normal mode ---------- ---
 -- window
@@ -25,15 +26,15 @@ vim.keymap.set("n", "<leader>sc", "<C-w>c", { desc = "Close current window" })
 vim.keymap.set("n", "<leader>so", "<C-w>o", { desc = "Close other windows" })
 
 
--- switch window by: Ctrl + h/j/k/l
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
+-- switch window by: <leader> + h/j/k/l
+vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move to right window" })
+vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to bottom window" })
+vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to top window" })
 
 -- adjust window size by: Alt + h/j/k/l
-vim.keymap.set("n", "<A-h>", "<C-w><", { desc = "Decrease width" })
-vim.keymap.set("n", "<A-l>", "<C-w>>", { desc = "Increase width" })
+vim.keymap.set("n", "<A-l>", "<C-w><", { desc = "Decrease width" })
+vim.keymap.set("n", "<A-h>", "<C-w>>", { desc = "Increase width" })
 vim.keymap.set("n", "<A-j>", "<C-w>-", { desc = "Decrease height" })
 vim.keymap.set("n", "<A-k>", "<C-w>+", { desc = "Increase height" })
 
@@ -45,8 +46,13 @@ vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Equalize window sizes" })
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- switch buffer
+keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Close current buffer" })
 keymap.set("n", "<F7>", ":bprevious<CR>")
 keymap.set("n", "<F8>", ":bnext<CR>")
+
+-- system clipboard
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set("n", "<leader>y", '"+yy', { desc = "Yank line to system clipboard" })
 
 -- ---------- plugins ---------- ---
 -- nvim-tree
