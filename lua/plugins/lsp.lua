@@ -18,13 +18,7 @@ return {
       -- Python
       vim.lsp.config('pyright', {})
       vim.lsp.enable('pyright')
-
-      -- Rust
-      vim.lsp.config('rust_analyzer', {})
-      vim.lsp.enable('rust_analyzer')
     end,
   },
-
-  { "mfussenegger/nvim-jdtls" },
 }
 
