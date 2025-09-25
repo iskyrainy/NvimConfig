@@ -71,5 +71,16 @@ return {
     },
   },
   { "mfussenegger/nvim-dap" },
+  {
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
 }
 
